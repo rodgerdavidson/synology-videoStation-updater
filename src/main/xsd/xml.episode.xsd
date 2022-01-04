@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="episodedetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="showtitle"/>
+        <xs:element ref="ratings"/>
+        <xs:element ref="userrating"/>
+        <xs:element ref="top250"/>
+        <xs:element ref="season"/>
+        <xs:element ref="episode"/>
+        <xs:element ref="displayseason"/>
+        <xs:element ref="displayepisode"/>
+        <xs:element ref="outline"/>
+        <xs:element ref="plot"/>
+        <xs:element ref="tagline"/>
+        <xs:element ref="runtime"/>
+        <xs:element ref="thumb"/>
+        <xs:element ref="mpaa"/>
+        <xs:element ref="playcount"/>
+        <xs:element ref="lastplayed"/>
+        <xs:element ref="id"/>
+        <xs:element maxOccurs="unbounded" ref="uniqueid"/>
+        <xs:element maxOccurs="unbounded" ref="genre"/>
+        <xs:element ref="credits"/>
+        <xs:element ref="director"/>
+        <xs:element ref="premiered"/>
+        <xs:element ref="year"/>
+        <xs:element ref="status"/>
+        <xs:element ref="code"/>
+        <xs:element ref="aired"/>
+        <xs:element ref="studio"/>
+        <xs:element ref="trailer"/>
+        <xs:element ref="fileinfo"/>
+        <xs:element maxOccurs="unbounded" ref="actor"/>
+        <xs:element ref="resume"/>
+        <xs:element ref="dateadded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="showtitle" type="xs:string"/>
+  <xs:element name="ratings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rating"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rating">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="value"/>
+        <xs:element ref="votes"/>
+      </xs:sequence>
+      <xs:attribute name="default" use="required" type="xs:boolean"/>
+      <xs:attribute name="max" use="required" type="xs:integer"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="value" type="xs:decimal"/>
+  <xs:element name="votes" type="xs:integer"/>
+  <xs:element name="userrating" type="xs:integer"/>
+  <xs:element name="top250" type="xs:integer"/>
+  <xs:element name="season" type="xs:integer"/>
+  <xs:element name="episode" type="xs:integer"/>
+  <xs:element name="displayseason" type="xs:integer"/>
+  <xs:element name="displayepisode" type="xs:integer"/>
+  <xs:element name="outline">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="plot" type="xs:string"/>
+  <xs:element name="tagline">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="runtime" type="xs:integer"/>
+  <xs:element name="mpaa" type="xs:NCName"/>
+  <xs:element name="playcount" type="xs:integer"/>
+  <xs:element name="lastplayed">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="id" type="xs:integer"/>
+  <xs:element name="uniqueid">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NMTOKEN">
+          <xs:attribute name="default" type="xs:boolean"/>
+          <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="genre" type="xs:NCName"/>
+  <xs:element name="credits" type="xs:string"/>
+  <xs:element name="director" type="xs:string"/>
+  <xs:element name="premiered" type="xs:NMTOKEN"/>
+  <xs:element name="year" type="xs:integer"/>
+  <xs:element name="status">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="code">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="aired" type="xs:NMTOKEN"/>
+  <xs:element name="studio" type="xs:NCName"/>
+  <xs:element name="trailer">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="fileinfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="streamdetails"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="streamdetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="video"/>
+        <xs:element ref="audio"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="video">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="codec"/>
+        <xs:element ref="aspect"/>
+        <xs:element ref="width"/>
+        <xs:element ref="height"/>
+        <xs:element ref="durationinseconds"/>
+        <xs:element ref="stereomode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aspect" type="xs:decimal"/>
+  <xs:element name="width" type="xs:integer"/>
+  <xs:element name="height" type="xs:integer"/>
+  <xs:element name="durationinseconds" type="xs:integer"/>
+  <xs:element name="stereomode">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="audio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="codec"/>
+        <xs:element ref="language"/>
+        <xs:element ref="channels"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="language">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="channels" type="xs:integer"/>
+  <xs:element name="actor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="role"/>
+        <xs:element ref="order"/>
+        <xs:element ref="thumb"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="role" type="xs:string"/>
+  <xs:element name="order" type="xs:integer"/>
+  <xs:element name="resume">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="position"/>
+        <xs:element ref="total"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="position" type="xs:decimal"/>
+  <xs:element name="total" type="xs:decimal"/>
+  <xs:element name="dateadded" type="xs:string"/>
+  <xs:element name="thumb" type="xs:anyURI"/>
+  <xs:element name="codec" type="xs:NCName"/>
+</xs:schema>
