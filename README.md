@@ -33,7 +33,7 @@ So, in the end, the easiest way for my once-and-done update was to key the data 
 
 Which brings us to the first important thing:
 
-###1) This isn't a refined user-friendly app
+### 1) This isn't a refined user-friendly app
 This is a back-end workaround solution.  A batch process, if you will.  You should expect to need some basic Java knowledge.
 
 At minimum, you will also need:
@@ -41,7 +41,7 @@ At minimum, you will also need:
 * the Java SE Development Kit [(JDK)](https://www.oracle.com/java/technologies/downloads/)
 * and [Apache Maven](https://maven.apache.org/download.cgi)
 
-###2) You'll need your VideoStation username and password
+### 2) You'll need your VideoStation username and password
 The system logs in the same way you would.  Because I was running it over and over, it was easier to put the login info into a properties file.  
 
 You should add your username and password into :   **src/main/resources/runner.properties**
@@ -55,15 +55,15 @@ So, the program has a bit to click past that.  If you don't have that, you shoul
 
 One more note... if you are using _**two-factor authentication**_ (like you should), the program will pause for 10 seconds for you to enter the code.  You may have to change that up if you aren't using TFA, your fingers aren't fast enough, or if it doesn't work right for you.
 
-###3) The program uses Microsoft Edge browser
+### 3) The program uses Microsoft Edge browser
 Sorry, it just does.  If you want, feel free to replace 'EdgeDriver' with 'ChromeDriver' throughout.  I have no idea what surprises you may be in for.
 
-###4) Xpath inconsistency
+### 4) Xpath inconsistency
 So, two things here... I got better at using xpaths to find things as I went, so you will see some that are more refined, and some that are crap.  They all work for me.  If Synology updates these in the next version of VideoStation, everything might break.  Who knows.  
 
 If you get errors that something wasn't found, try again.  Sometimes, the browsers are just flukey.  (See above, this is the wrong solution.)  Sometimes it's a timing thing.  If you keep getting them, you'll have to pop open your browser developer tools and search up the target yourself to fix them.   
 
-###5) Generated sources
+### 5) Generated sources
 In the _src/main/xsd_ folder you will find the xml schema for the NFO format that is used.  When Maven builds the app, it takes that file and generates the corresponding classes automagically.
 
 In theory, that means that if you have a different version of the NFO file, you can go to one of those online schema generators, create a new xsd, and drop it in here instead and you are good to roll.  In practice, that only works if none of the main field names or formats have changed.  There may otherwise be a few other changes to make.
