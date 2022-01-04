@@ -1,10 +1,11 @@
 package org.rodgerdavidson;
 
+import org.rodgerdavidson.xml.model.Episodedetails;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.HashMap;
-
-import org.rodgerdavidson.xml.model.Episodedetails;
-import javax.xml.bind.*;
 
 public class EpisodeImporter {
 
@@ -19,10 +20,10 @@ public class EpisodeImporter {
         HashMap<String, Episodedetails> loadedFileDetails = new HashMap<>();
 
         for (File currentFile : searchFolder.listFiles()) {
-            if(!currentFile.getAbsolutePath().endsWith(".nfo")) continue;
+            if (!currentFile.getAbsolutePath().endsWith(".nfo")) continue;
             String episodeName = reformatFileName(currentFile.getName());
 
-            if(currentFile.isFile() && currentFile.canRead()){
+            if (currentFile.isFile() && currentFile.canRead()) {
                 try {
                     JAXBContext jc = JAXBContext.newInstance(Episodedetails.class);
                     Unmarshaller unmarshaller = jc.createUnmarshaller();

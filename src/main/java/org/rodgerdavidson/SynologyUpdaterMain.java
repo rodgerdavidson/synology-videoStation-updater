@@ -1,12 +1,11 @@
 package org.rodgerdavidson;
 
-import java.io.FileInputStream;
+import org.rodgerdavidson.xml.model.Episodedetails;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.Properties;
-
-import org.rodgerdavidson.xml.model.Episodedetails;
 
 public class SynologyUpdaterMain {
     public static final String RUNNER_PROPERTIES = "runner.properties";
